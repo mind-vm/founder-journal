@@ -1,6 +1,6 @@
 {
   "name": "founder-journal",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Führt im GTM-Repository eines Produkts ein Founder Journal, misst Kundenarbeit und fragt vor Produktcode nach, bis Kunden zugesagt haben.",
   "author": { "name": "Jürgen Ryannel" }
 }

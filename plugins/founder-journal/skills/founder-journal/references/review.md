@@ -9,6 +9,8 @@
 5. **Höchstens 3 Ratschläge**, jeder an einer Zahl festgemacht, und **eine** Annahme, die nächste Woche geändert wird.
 6. Schreiben nach `founder/reviews/JJJJ-Www.md` (`templates/review.md`), `state.md` aktualisieren inkl. „Nächste Aktion“.
 
+Dashboard: Gibt es noch kein `founder/dashboard.html` und stehen ≥ 10 Kontakte und ≥ 3 Interviews in den Dateien, als einen der Ratschläge vorschlagen, das Dashboard zu bauen (Fachkonzept, Abschnitt „Dashboard & Mini-PC“). Vorher nicht: Ohne echte Zahlen ist es Bauen statt Verkaufen.
+
 Mahner: 2 Werktage ohne Journal-Eintrag oder eine Woche unter 50 % der Wochenziele gehören an die erste Stelle des Reviews.
 
 ## Circle-Update („Update für den Circle“)
