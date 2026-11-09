@@ -20,20 +20,52 @@ scripts/docs-sidebar.sh && python3 -m http.server 4334 --bind 127.0.0.1
 
 Dann http://localhost:4334 öffnen. In der Claude-App startet die Konfiguration `docs` aus `.claude/launch.json` dasselbe.
 
-## Installieren
+## Installieren (einmal pro Rechner)
 
 In einer `claude`-Session:
 
 ```
-/plugin marketplace add /Users/jryannel/dev/tmp/FounderJournal
+/plugin marketplace add mind-vm/founder-journal
 /plugin install founder-journal@founder-journal
 ```
 
-Nach Änderungen am Skill: `/plugin marketplace update founder-journal`.
+Ohne Angabe wird das Plugin global installiert („user“). Damit gibt es die Befehle `/founder-journal:…` in jedem Ordner, auch in einem neuen, leeren Repository. Updates holst du mit `/plugin marketplace update founder-journal`.
 
-## Ein GTM-Repository starten
+## Ein Repository für ein Produkt anlegen
 
-Im leeren GTM-Repository (z.B. `sokrates-gtm`) eine Claude-Session öffnen und sagen: *„Leg das Founder Journal an“*. Der Skill fragt nach Produkt-Repository und Live-Seite, legt `founder/` an, ergänzt `CLAUDE.md` um die Founder-Regel und entwirft drei ICP-Hypothesen.
+1. Neuen Ordner neben dem Produkt anlegen und Git starten:
+   ```bash
+   mkdir ~/dev/tmp/meinprodukt-gtm && cd ~/dev/tmp/meinprodukt-gtm && git init
+   ```
+2. Dort Claude starten (Terminal: `claude`, oder in der Claude-App den Ordner öffnen).
+3. Eingeben:
+   ```
+   /founder-journal:init ~/dev/github.com/…/meinprodukt https://meinprodukt.de
+   ```
+   Pfad zum Produkt-Repository und Website sind optional; ohne fragt Init danach.
+4. Init liest den Bestand, legt `founder/`, `leitfaden/`, Docsify und die Founder-Regel in `CLAUDE.md` an, aktiviert das Plugin für dieses Repository (`.claude/settings.json`) und entwirft drei ICP-Hypothesen.
+5. Du wählst eine Hypothese. Weiter geht es mit `/founder-journal:landing`.
+
+Hast du mehrere Produkte und weißt nicht, welches zuerst: vorher `/founder-journal:triage`.
+
+## Befehle
+
+| Befehl | Wofür |
+| --- | --- |
+| `/founder-journal:triage` | aus mehreren Produkten eines wählen |
+| `/founder-journal:init` | Repository für ein Produkt anlegen |
+| `/founder-journal:icp` | Zielgruppe und Problem schärfen |
+| `/founder-journal:landing` | Landingpage bauen oder ändern |
+| `/founder-journal:landing-review` | Landingpage prüfen |
+| `/founder-journal:watering-holes` | Orte finden, an denen die Zielgruppe spricht |
+| `/founder-journal:anfragen` | Entwürfe für heutige Anfragen und Follow-ups |
+| `/founder-journal:journal` | den Tag eintragen: Anfragen, Gespräche, Zitate |
+| `/founder-journal:review` | Wochen-Review |
+| `/founder-journal:circle` | Update für den Founder Circle |
+| `/founder-journal:asset` | Flyer, Video, Onepager, Ad-Test |
+| `/founder-journal:leitfaden` | Leitfaden auf den Stand des Plugins bringen |
+
+Jeder Befehl startet einen **Modus** des Skills: einen Abschnitt mit eigenen Schritten (`skills/founder-journal/references/`). Freie Sprache geht genauso: „Journal: 10 angeschrieben …“ oder „Review“ wählt denselben Modus. Das Gate vor Produktcode hat keinen Befehl; es greift von selbst, wenn du im Repository Produktcode bauen willst.
 
 ## Version 2 (geplant)
 

@@ -18,18 +18,18 @@ Der Skill führt einen Founder durch die Customer-First-Methode: erst Kunden, da
 
 ## Modus wählen
 
-Erkenne den Modus an der Anfrage und lies **vor dem ersten Schritt** die zugehörige Referenz. Ohne `founder/state.md` im Repository ist der einzige mögliche Modus Init (oder Triage, wenn noch kein Produkt gewählt ist).
+Erkenne den Modus an der Anfrage oder am Befehl (`/founder-journal:<befehl>`) und lies **vor dem ersten Schritt** die zugehörige Referenz. Ohne `founder/state.md` im Repository ist der einzige mögliche Modus Init (oder Triage, wenn noch kein Produkt gewählt ist).
 
-| Modus | Auslöser (Beispiel) | Referenz |
+| Modus | Auslöser (Beispiel) / Befehl | Referenz |
 | --- | --- | --- |
-| Triage | „Welche App zuerst?“ | [references/triage.md](references/triage.md) |
-| Init | „Leg das Founder Journal an“, „Leitfaden aktualisieren“ | [references/init.md](references/init.md) |
-| ICP | „ICP schärfen“, „Hypothesen bewerten“ | [references/icp.md](references/icp.md) |
-| Landing / Landing-Review | „Bau die Landingpage“, „Review die Landingpage“ | [references/landing.md](references/landing.md) |
-| Outreach | „Wo finde ich den ICP?“, „Anfragen für heute“ | [references/outreach.md](references/outreach.md) |
-| Log | „Journal: …“, Interview-Notizen | [references/log.md](references/log.md) |
-| Review / Circle | „Review“, freitags, „Update für den Circle“ | [references/review.md](references/review.md) |
-| Asset / Ad-Test | „Mach ein Demo-Video / einen Flyer“, „Starte einen Ad-Test“ | [references/assets.md](references/assets.md) |
+| Triage | „Welche App zuerst?“ · `triage` | [references/triage.md](references/triage.md) |
+| Init | „Leg das Founder Journal an“ · `init`; „Leitfaden aktualisieren“ · `leitfaden` | [references/init.md](references/init.md) |
+| ICP | „ICP schärfen“ · `icp` | [references/icp.md](references/icp.md) |
+| Landing / Landing-Review | „Bau die Landingpage“ · `landing`; „Review die Landingpage“ · `landing-review` | [references/landing.md](references/landing.md) |
+| Outreach | „Wo finde ich den ICP?“ · `watering-holes`; „Anfragen für heute“ · `anfragen` | [references/outreach.md](references/outreach.md) |
+| Log | „Journal: …“, Interview-Notizen · `journal` | [references/log.md](references/log.md) |
+| Review / Circle | „Review“ · `review`; „Update für den Circle“ · `circle` | [references/review.md](references/review.md) |
+| Asset / Ad-Test | „Mach einen Flyer“, „Starte einen Ad-Test“ · `asset` | [references/assets.md](references/assets.md) |
 | Gate | Anfrage nach Produktcode | [references/gate.md](references/gate.md) |
 
 Phasen, Gates, Go-Schwellen und Commitment-Leiter stehen in [references/methode.md](references/methode.md); Dateiformate in [references/datenmodell.md](references/datenmodell.md). Vorlagen liegen in `templates/`.

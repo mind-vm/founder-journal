@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "founder-journal": {
+      "source": { "source": "github", "repo": "mind-vm/founder-journal" }
+    }
+  },
+  "enabledPlugins": {
+    "founder-journal@founder-journal": true
+  }
+}

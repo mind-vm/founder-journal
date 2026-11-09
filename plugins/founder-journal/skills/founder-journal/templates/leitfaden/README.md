@@ -15,18 +15,22 @@ Claude hilft dabei im Terminal. Alle Daten liegen als Markdown und CSV in `found
 
 ## Was du sagst, was passiert
 
-| Du sagst | Claude macht | Ergebnis |
-| --- | --- | --- |
-| „Journal: …“ | Tageseintrag, Interview-Dateien, Kontakte, Zahlen | `founder/journal/`, `founder/interviews/`, `contacts.csv` |
-| „Anfragen für heute“ | Entwürfe für fällige Follow-ups und bis zu 10 neue Anfragen | `founder/outreach/JJJJ-MM-TT.md` |
-| „Wo finde ich den ICP?“ | Websuche nach Orten, an denen deine Zielgruppe über das Problem spricht | `founder/outreach/watering-holes.md` |
-| „Bereite das Gespräch mit … vor“ | Fragen für genau diese Person | Antwort im Chat |
-| „Review“ | Zählen, Phase bestimmen, Muster, max. 3 Ratschläge | `founder/reviews/JJJJ-Www.md` |
-| „Update für den Circle“ | Wochen-Update zum Teilen | `founder/reviews/JJJJ-Www-circle.md` |
-| „Review die Landingpage“ | Prüfung gegen 5-Sekunden-Test, ein CTA, Recht | Befund im Chat oder in `reviews/` |
-| „Mach einen Flyer / ein Demo-Video“ | Asset mit Testfrage | `founder/assets/` |
-| „Leitfaden aktualisieren“ | neue Fassung dieses Leitfadens aus dem Plugin | `leitfaden/` |
-| eine Anfrage nach Produktcode | eine Zeile mit Phase und Trade-off, dann Nachfrage | Ausnahme im Journal, wenn du trotzdem baust |
+Jede Zeile ist ein **Modus** des Skills. Du startest ihn mit dem Befehl oder einfach mit eigenen Worten.
+
+| Befehl | oder sag | Claude macht | Ergebnis |
+| --- | --- | --- | --- |
+| `/founder-journal:journal` | „Journal: …“ | Tageseintrag, Interview-Dateien, Kontakte, Zahlen | `founder/journal/`, `founder/interviews/`, `contacts.csv` |
+| `/founder-journal:anfragen` | „Anfragen für heute“ | Entwürfe für fällige Follow-ups und bis zu 10 neue Anfragen | `founder/outreach/JJJJ-MM-TT.md` |
+| `/founder-journal:watering-holes` | „Wo finde ich den ICP?“ | Websuche nach Orten, an denen deine Zielgruppe über das Problem spricht | `founder/outreach/watering-holes.md` |
+| – | „Bereite das Gespräch mit … vor“ | Fragen für genau diese Person | Antwort im Chat |
+| `/founder-journal:review` | „Review“ | Zählen, Phase bestimmen, Muster, max. 3 Ratschläge | `founder/reviews/JJJJ-Www.md` |
+| `/founder-journal:circle` | „Update für den Circle“ | Wochen-Update zum Teilen | `founder/reviews/JJJJ-Www-circle.md` |
+| `/founder-journal:icp` | „ICP schärfen“ | Zielgruppe und Problem zuspitzen | `founder/icp-hypothesen.md`, `state.md` |
+| `/founder-journal:landing` | „Bau die Landingpage“ | Seite bauen oder ändern | `landing/` oder die Website |
+| `/founder-journal:landing-review` | „Review die Landingpage“ | Prüfung gegen 5-Sekunden-Test, ein CTA, Recht | `founder/reviews/` |
+| `/founder-journal:asset` | „Mach einen Flyer / ein Demo-Video“ | Asset mit Testfrage | `founder/assets/` |
+| `/founder-journal:leitfaden` | „Leitfaden aktualisieren“ | neue Fassung dieses Leitfadens aus dem Plugin | `leitfaden/` |
+| – | eine Anfrage nach Produktcode | eine Zeile mit Phase und Trade-off, dann Nachfrage | Ausnahme im Journal, wenn du trotzdem baust |
 
 ## Wer was macht
 
