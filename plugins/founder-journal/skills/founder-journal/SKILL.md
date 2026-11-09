@@ -32,7 +32,7 @@ Erkenne den Modus an der Anfrage oder am Befehl (`/founder-journal:<befehl>`) un
 | Asset / Ad-Test | „Mach einen Flyer“, „Starte einen Ad-Test“ · `asset` | [references/assets.md](references/assets.md) |
 | Gate | Anfrage nach Produktcode | [references/gate.md](references/gate.md) |
 
-Phasen, Gates, Go-Schwellen und Commitment-Leiter stehen in [references/methode.md](references/methode.md); Dateiformate in [references/datenmodell.md](references/datenmodell.md). Vorlagen liegen in `templates/`.
+Phasen, Gates, Go-Schwellen und Commitment-Leiter stehen in [references/methode.md](references/methode.md); Dateiformate in [references/datenmodell.md](references/datenmodell.md). Vorlagen liegen in `templates/`, darunter das **Landing-Kit** (`templates/landing-kit/`, Anleitung in dessen `README.md`): Landingpage mit Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1 und Mail-Benachrichtigung für Produkte ohne eigene Website.
 
 ## Nach jedem Modus
 

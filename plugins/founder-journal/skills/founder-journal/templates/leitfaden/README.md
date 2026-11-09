@@ -26,7 +26,7 @@ Jede Zeile ist ein **Modus** des Skills. Du startest ihn mit dem Befehl oder ein
 | `/founder-journal:review` | „Review“ | Zählen, Phase bestimmen, Muster, max. 3 Ratschläge | `founder/reviews/JJJJ-Www.md` |
 | `/founder-journal:circle` | „Update für den Circle“ | Wochen-Update zum Teilen | `founder/reviews/JJJJ-Www-circle.md` |
 | `/founder-journal:icp` | „ICP schärfen“ | Zielgruppe und Problem zuspitzen | `founder/icp-hypothesen.md`, `state.md` |
-| `/founder-journal:landing` | „Bau die Landingpage“ | Seite bauen oder ändern | `landing/` oder die Website |
+| `/founder-journal:landing` | „Bau die Landingpage“ | Seite bauen oder ändern; ohne eigene Website mit dem Landing-Kit (Gesprächsformular, Ergebnis-Formular, Speicher, Benachrichtigung per Mail) | `landing/` oder die Website |
 | `/founder-journal:landing-review` | „Review die Landingpage“ | Prüfung gegen 5-Sekunden-Test, ein CTA, Recht | `founder/reviews/` |
 | `/founder-journal:asset` | „Mach einen Flyer / ein Demo-Video“ | Asset mit Testfrage | `founder/assets/` |
 | `/founder-journal:leitfaden` | „Leitfaden aktualisieren“ | neue Fassung dieses Leitfadens aus dem Plugin | `leitfaden/` |
@@ -61,8 +61,12 @@ Die Go-Schwellen sind beim Start festgeschrieben und stehen in [`founder/state.m
 | `founder/assets/` | Flyer, Videos, Anzeigen, jeweils mit Testfrage |
 | `founder/reviews/` | Wochen-Reviews, Circle-Updates, Landing-Reviews |
 | `founder/private/` | Rohnotizen, Exporte (nie im Git) |
-| `landing/` | die Landingpage oder ein Verweis auf die Website |
+| `landing/` | die Landingpage aus dem Landing-Kit mit Einrichtungsanleitung (`landing/README.md`), oder ein Verweis auf die Website des Produkts |
 | `leitfaden/` | dieser Leitfaden |
+
+## Anfragen von der Landingpage
+
+Wer auf der Landingpage „15 Minuten mit mir sprechen“ nutzt, landet in der Anfrage-Liste, und du bekommst sofort eine Mail. Mit „Antworten“ schreibst du direkt zurück. Wer lieber nur die Ergebnisse will, trägt sich im zweiten Formular ein. Beides holst du als CSV mit dem Export-Skript (`landing/scripts/anfragen-export.sh` beim Landing-Kit). Gesprächsanfragen und „offen für ein Gespräch“ kommen als Kontakte in `founder/contacts.csv`; reine Anmeldungen zählen nicht für die Go-Schwellen.
 
 ## Lesen
 
