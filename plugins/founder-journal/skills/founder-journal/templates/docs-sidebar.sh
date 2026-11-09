@@ -1,39 +1,87 @@
 #!/usr/bin/env bash
-# Erzeugt _sidebar.md für Docsify aus allen Markdown-Dateien in founder/, leitfaden/ und landing/.
-# Titel = erste "# "-Überschrift, sonst Dateiname. Journal und Reviews: neueste zuerst.
+# Erzeugt _sidebar.md für Docsify, geordnet nach dem Ablauf: fünf Phasen mit
+# Status aus founder/state.md (✓ erledigt, ● jetzt), darunter die Unterlagen
+# der Phase; danach was immer läuft (Journal, Reviews, Assets) und der Leitfaden.
+# Titel = erste "# "-Überschrift, sonst Dateiname. Aus dem Plugin founder-journal.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-title() {
-  local t
-  t=$(grep -m1 '^# ' "$1" 2>/dev/null | sed 's/^# //') || true
-  echo "${t:-$(basename "$1" .md)}"
-}
+python3 - > _sidebar.md <<'PY'
+import glob, os, re
 
-{
-  echo "- [Stand](/founder/state.md)"
-  for f in founder/*.md; do
-    [ "$f" = founder/state.md ] && continue
-    echo "- [$(title "$f")](/$f)"
-  done
-  for dir in founder/*/; do
-    name=$(basename "$dir")
-    files=$(find "$dir" -name '*.md' | sort -r)
-    [ -z "$files" ] && continue
-    echo "- $(echo "${name:0:1}" | tr '[:lower:]' '[:upper:]')${name:1}"
-    while IFS= read -r f; do
-      echo "  - [$(title "$f")](/$f)"
-    done <<< "$files"
-  done
-  if [ -f leitfaden/README.md ]; then
-    echo "- Leitfaden"
-    echo "  - [So arbeitest du hier](/leitfaden/README.md)"
-    for f in leitfaden/*.md; do
-      [ "$f" = leitfaden/README.md ] && continue
-      echo "  - [$(title "$f")](/$f)"
-    done
-  fi
-  echo "- Repo"
-  echo "  - [Landing](/landing/README.md)"
-  echo "  - [CLAUDE.md](/CLAUDE.md)"
-} > _sidebar.md
+def title(p):
+    try:
+        for line in open(p, encoding="utf-8"):
+            if line.startswith("# "):
+                return line[2:].strip()
+    except OSError:
+        pass
+    return os.path.splitext(os.path.basename(p))[0]
+
+def link(p, label=None):
+    return f"[{label or title(p)}](/{p})"
+
+def files(pattern, newest_first=False):
+    return sorted(glob.glob(pattern, recursive=True), reverse=newest_first)
+
+# Status der Gates aus der Tabelle in state.md: | G0 … | Bedingung | Stand |
+gates = {}
+if os.path.exists("founder/state.md"):
+    for line in open("founder/state.md", encoding="utf-8"):
+        m = re.match(r"\|\s*(G[0-3])\b[^|]*\|[^|]*\|([^|]*)\|", line)
+        if m:
+            gates[m.group(1)] = "erreicht" in m.group(2).lower()
+
+landing_reviews = files("founder/reviews/*landing*.md", True)
+week_reviews = [f for f in files("founder/reviews/*.md", True) if f not in landing_reviews]
+
+phases = [
+    ("Zielgruppe & Problem", "G0", [
+        "founder/icp-hypothesen.md", "founder/befund-bestand.md", "founder/portfolio.md"]),
+    ("Landingpage", "G1", ["landing/README.md"] + landing_reviews),
+    ("Kontakte & Gespräche", "G2",
+        files("founder/outreach/*.md") + files("founder/interviews/*.md", True)),
+    ("Zusagen", None, files("founder/angebote/*.md", True)),
+    ("Entscheidung", "G3", files("founder/entscheidung*.md")),
+]
+
+done = []
+for _, gate, _ in phases:
+    if gate is None:            # Zusagen: erledigt, wenn G3 erreicht ist
+        gate = "G3"
+    done.append(gates.get(gate, False))
+current = next((i for i, d in enumerate(done) if not d), None)
+
+out = [f"- {link('founder/state.md', 'Stand')}"]
+if os.path.exists("leitfaden/ablauf.md"):
+    out.append(f"- {link('leitfaden/ablauf.md', 'Ablauf')}")
+for i, (name, gate, paths) in enumerate(phases):
+    mark = "✓" if done[i] else ("●" if i == current else "○")
+    suffix = f" · {gate}" if gate else ""
+    out.append(f"- {mark} {i + 1} {name}{suffix}")
+    shown = [p for p in paths if os.path.exists(p)]
+    for p in shown:
+        out.append(f"  - {link(p)}")
+    if not shown:
+        out.append("  - noch nichts")
+
+out.append("- Laufend")
+journals = files("founder/journal/*.md", True)
+if journals:
+    out.append(f"  - Journal: {link(journals[0], 'neuester Eintrag')}")
+    for p in journals[1:]:
+        out.append(f"  - {link(p)}")
+for p in week_reviews:
+    out.append(f"  - {link(p)}")
+for p in files("founder/assets/*/README.md", True):
+    out.append(f"  - {link(p)}")
+
+if os.path.exists("leitfaden/README.md"):
+    out.append("- Leitfaden")
+    out.append(f"  - {link('leitfaden/README.md', 'So arbeitest du hier')}")
+    for p in ["leitfaden/interviews.md", "leitfaden/methode.md"]:
+        if os.path.exists(p):
+            out.append(f"  - {link(p)}")
+out.append(f"- {link('CLAUDE.md', 'CLAUDE.md')}")
+print("\n".join(out))
+PY

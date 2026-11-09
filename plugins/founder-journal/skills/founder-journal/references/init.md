@@ -13,11 +13,11 @@ Legt im aktuellen Repository das Founder Journal an. Einmal pro Produkt-Zyklus.
 7. **Erster Journal-Eintrag** aus `templates/journal.md`.
 8. **Lesen einrichten (Docsify):** `templates/docsify-index.html` als `index.html` ins Repository-Root (Platzhalter `{{PRODUKT}}`), `templates/docs-sidebar.sh` nach `scripts/` (ausführbar), `templates/launch.json` nach `.claude/launch.json` mit dem Pfad des Repositorys und einem freien Port (Standard 4333; belegt → nächster). Gibt es `.claude/launch.json` schon, die Konfiguration `docs` ergänzen. Außerdem `templates/settings.json` als `.claude/settings.json` (vorhandene Datei zusammenführen), damit das Plugin in diesem Repository immer aktiv ist, auch auf anderen Rechnern. Dann `scripts/docs-sidebar.sh` einmal laufen lassen. Fertig, wenn `index.html`, `scripts/docs-sidebar.sh` und die Startkonfiguration existieren und `_sidebar.md` alle Dateien aus `founder/` listet.
 
-9. **Leitfaden kopieren:** `templates/leitfaden/README.md` und `templates/leitfaden/interviews.md` nach `leitfaden/`, dazu [methode.md](methode.md) als `leitfaden/methode.md` mit der Zeile `> Kopie aus dem Plugin founder-journal <Version>. Bitte nicht hier bearbeiten.` unter der Überschrift. Platzhalter: `{{PRODUKT}}`, `{{PORT}}` (aus Schritt 8), `{{VERSION}}` (aus `plugin.json` des Plugins). Dann `scripts/docs-sidebar.sh` erneut laufen lassen.
+9. **Leitfaden kopieren:** `templates/leitfaden/README.md`, `ablauf.md` und `interviews.md` nach `leitfaden/`, dazu [methode.md](methode.md) als `leitfaden/methode.md` mit der Zeile `> Kopie aus dem Plugin founder-journal <Version>. Bitte nicht hier bearbeiten.` unter der Überschrift. Platzhalter: `{{PRODUKT}}`, `{{PORT}}` (aus Schritt 8), `{{VERSION}}` (aus `plugin.json` des Plugins). Dann `scripts/docs-sidebar.sh` erneut laufen lassen.
 
 ## Leitfaden aktualisieren
 
-Auslöser „Leitfaden aktualisieren“ oder ein neues Plugin: Schritt 9 erneut ausführen und `leitfaden/` vollständig überschreiben. Der Leitfaden ist eine Kopie aus dem Plugin, nie eine eigene Quelle; projektspezifische Notizen gehören nach `founder/`. Liegt `scripts/docs-sidebar.sh` in einer älteren Fassung ohne Abschnitt „Leitfaden“ vor, durch `templates/docs-sidebar.sh` ersetzen. Journal-Zeile mit der Version.
+Auslöser „Leitfaden aktualisieren“ oder ein neues Plugin: Schritt 9 erneut ausführen und `leitfaden/` vollständig überschreiben. Der Leitfaden ist eine Kopie aus dem Plugin, nie eine eigene Quelle; projektspezifische Notizen gehören nach `founder/`. `scripts/docs-sidebar.sh` immer durch `templates/docs-sidebar.sh` ersetzen: Es ordnet die Navigation nach den fünf Phasen und liest den Status aus `state.md`. Journal-Zeile mit der Version.
 
 ## Fertig, wenn
 

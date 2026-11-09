@@ -40,6 +40,8 @@ Jede Zeile ist ein **Modus** des Skills. Du startest ihn mit dem Befehl oder ein
 
 ## Phasen und Gates
 
+Die Navigation links folgt den fünf Phasen und zeigt, wo du stehst (✓ erledigt, ● jetzt). Was eine Phase von einem Modus unterscheidet und welcher Befehl in welche Phase gehört, steht in [Ablauf](ablauf.md).
+
 | Gate | Bedingung | Danach |
 | --- | --- | --- |
 | G0 Setup | ICP-Satz und Problem in `state.md` | Landingpage bauen |

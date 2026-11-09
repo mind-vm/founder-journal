@@ -3,7 +3,7 @@
 ## Wochen-Review (freitags, „Review“)
 
 1. **Zählen** aus den Dateien laut [datenmodell.md](datenmodell.md): Woche und gesamt. Nichts schätzen.
-2. **Phase bestimmen** aus Belegen: welches Gate erfüllt ist, welche Schwelle wie weit ist. In Woche 6 zusätzlich Go/Pivot/Kill je Kriterium.
+2. **Phase bestimmen** aus Belegen: welches Gate erfüllt ist, welche Schwelle wie weit ist. In Woche 6 zusätzlich Go/Pivot/Kill je Kriterium; die Entscheidung mit Begründung nach `founder/entscheidung.md` und in `state.md`.
 3. **Muster** über alle Interviews: wiederkehrende Workarounds, Auslöser, Wörter. Die 3 stärksten Zitate der Woche.
 4. **Ausnahmen**: Anzahl Gate-Ausnahmen und Baustunden gegen Kundenstunden. Verhältnis unter 1:1 vor dem Go benennen.
 5. **Höchstens 3 Ratschläge**, jeder an einer Zahl festgemacht, und **eine** Annahme, die nächste Woche geändert wird.
