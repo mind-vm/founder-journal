@@ -16,7 +16,7 @@
     assets/                  # Video, Flyer, Ad-Motive, jeweils mit Testfrage
     reviews/JJJJ-Www.md, JJJJ-Www-circle.md
     private/                 # Rohnotizen, Transkripte (nie committen)
-  landing/                   # statische Landingpage
+  landing/                   # statische Landingpage, oder nur README.md mit Verweis auf die Website des Produkts
 ```
 
 ## contacts.csv

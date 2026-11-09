@@ -1,6 +1,6 @@
 # Modus Gate
 
-Greift bei jeder Anfrage nach **Produktcode**: Änderungen außerhalb von `founder/` und `landing/`, insbesondere im Produkt-Repository.
+Greift bei jeder Anfrage nach **Produktcode**: Änderungen außerhalb von `founder/` und `landing/`, insbesondere im Produkt-Repository. Ausgenommen ist die Website des Produkts, wenn sie die Landingpage ist (Ausnahme steht in der Founder-Regel der `CLAUDE.md`).
 
 ## Schritte
 

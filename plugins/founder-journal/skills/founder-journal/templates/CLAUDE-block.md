@@ -7,4 +7,4 @@ Go-to-Market für **{{PRODUKT}}**. Hier wird nicht das Produkt gebaut, sondern d
 
 ## Founder-Regel (Gate vor Produktcode)
 
-Bevor Code außerhalb von `founder/` und `landing/` entsteht, insbesondere im Produkt-Repository: Skill `founder-journal`, Modus Gate. Vor G3 zuerst eine Zeile mit Phase und Trade-off, dann nachfragen; jede bestätigte Ausnahme mit Baustunden ins Tagesjournal. Verkaufswerkzeuge (Landingpage, Klick-Prototyp, Demo, Concierge-Werkzeug) sind erlaubt.
+Bevor Code außerhalb von `founder/` und `landing/` entsteht, insbesondere im Produkt-Repository ({{WEBSITE_AUSNAHME}}): Skill `founder-journal`, Modus Gate. Vor G3 zuerst eine Zeile mit Phase und Trade-off, dann nachfragen; jede bestätigte Ausnahme mit Baustunden ins Tagesjournal. Verkaufswerkzeuge (Landingpage, Klick-Prototyp, Demo, Concierge-Werkzeug) sind erlaubt.

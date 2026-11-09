@@ -2,9 +2,18 @@
 
 Voraussetzung: G0 erreicht. Sonst zuerst ICP.
 
+## Wo die Seite liegt
+
+Eine Seite, eine Quelle. Erst klären, dann bauen:
+
+- **Das Produkt hat schon eine Website** (eigener Ordner im Produkt-Repository, eigene Domain): Die Landingpage wird dort gebaut, meist als neue Startseite für die Dauer des Zyklus. Die alte Produktseite bleibt als Komponente oder Unterseite erhalten. `landing/` im GTM-Repository enthält dann nur eine `README.md` mit Verweis (Domain, Dateien, Deploy-Weg). Die Website ist vom Gate ausgenommen; in die Founder-Regel der `CLAUDE.md` gehört der Pfad als Ausnahme.
+- **Keine Website:** statische Seite in `landing/` (`index.html`, `impressum.html`, `datenschutz.html`), ohne Build-Schritt.
+
+Vor dem Deploy prüfen: Wohin geht der Deploy wirklich (Repository und Branch, die der Hoster baut), und empfängt die Kontaktadresse Mail (MX-Eintrag)?
+
 ## Landing bauen
 
-Statische Seite in `landing/` (`index.html`, `impressum.html`, `datenschutz.html`), ohne Build-Schritt. Existiert eine Produktseite, deren Marke (Farben, Schriften, Ton) und Aussagen übernehmen, aber die Struktur neu auf den ICP ausrichten.
+Gibt es eine Produktseite, deren Marke (Farben, Schriften, Ton) und Aussagen übernehmen, aber die Struktur neu auf den ICP ausrichten.
 
 Aufbau, von oben:
 
