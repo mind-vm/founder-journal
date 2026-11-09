@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/jryannel/dev/tmp/FounderJournal && scripts/docs-sidebar.sh && exec python3 -m http.server 4334 --bind 127.0.0.1"],
+      "port": 4334
+    }
+  ]
+}

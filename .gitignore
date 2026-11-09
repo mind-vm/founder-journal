@@ -1,1 +1,4 @@
 .DS_Store
+
+# Docsify, erzeugt von scripts/docs-sidebar.sh
+_sidebar.md

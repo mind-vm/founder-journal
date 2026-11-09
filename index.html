@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Founder Journal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+  <style>
+    :root { --theme-color: #c2410c; }
+    .markdown-section { max-width: 920px; }
+    .markdown-section table { display: table; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="app">Lädt …</div>
+  <script>
+    window.$docsify = {
+      name: 'Founder Journal',
+      homepage: 'README.md',
+      loadSidebar: true,
+      subMaxLevel: 0,
+      relativePath: true,
+      auto2top: true,
+      search: { placeholder: 'Suchen', noData: 'Nichts gefunden', depth: 3 },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
+  <!-- blendet den YAML-Kopf von SKILL.md aus -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/front-matter.min.js"></script>
+</body>
+</html>

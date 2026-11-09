@@ -10,6 +10,16 @@ Plugin-Repository für Customer-First-Werkzeuge in Claude Code: erst Kunden, dan
 | `plugins/founder-journal/` | Plugin mit dem Skill `founder-journal` (Modi: Triage, Init, ICP, Landing, Outreach, Log, Review, Asset/Ad-Test, Gate) |
 | `.claude-plugin/marketplace.json` | macht dieses Repository zu einem Marketplace |
 
+## Lesen
+
+Alle Dokumente als Website mit Navigation und Suche (Docsify):
+
+```bash
+scripts/docs-sidebar.sh && python3 -m http.server 4334 --bind 127.0.0.1
+```
+
+Dann http://localhost:4334 öffnen. In der Claude-App startet die Konfiguration `docs` aus `.claude/launch.json` dasselbe.
+
 ## Installieren
 
 In einer `claude`-Session:
