@@ -27,7 +27,7 @@ Aufbau, von oben:
 5. Preis bzw. Founding-Angebot, sobald Phase 4.
 6. Footer: Impressum, Datenschutz (echte Seiten, Anbieter mit Anschrift — Angaben beim Founder erfragen, nie erfinden).
 
-Formulare nur über einen Dienst mit Double-Opt-in. Keine Tracker ohne Einwilligung; Messung über serverseitige Zählung oder einwilligungsfreie Analyse.
+Zweiter Weg für alle, die nicht sprechen wollen: eine kleine Warteliste („Ergebnisse per Mail“) mit 2–3 Verhaltensfragen und „offen für ein Gespräch“, klar unter dem Haupt-CTA. Einfachste Form: eigenes Formular in die Datenbank des Hosters (z.B. Cloudflare D1), ohne Newsletter-Dienst. Ohne Double-Opt-in nur für Ergebnisse und Gesprächsanfragen nutzen, nie als Newsletter; für Newsletter einen Dienst mit Double-Opt-in. Keine Tracker ohne Einwilligung; Messung über serverseitige Zählung oder einwilligungsfreie Analyse.
 
 ## Landing-Review
 

@@ -26,7 +26,7 @@ Kopfzeile: `id,name,rolle,firma,quelle,kanal,aufhaenger,status,commitment,letzte
 | Spalte | Werte |
 | --- | --- |
 | id | `k-001`, fortlaufend |
-| quelle | netzwerk, intro, community, landing, event, ad |
+| quelle | netzwerk, intro, community, landing (auch Warteliste mit „offen für Gespräch“), flyer, event, ad |
 | status | neu, angefragt, geantwortet, gespraech-geplant, gespraech-gefuehrt, pilot, zahlend, verloren |
 | commitment | 0–5 laut Commitment-Leiter |
 | letzter_kontakt, faellig | ISO-Datum; `faellig` = nächster Follow-up (3 Tage nach unbeantworteter Anfrage) |
