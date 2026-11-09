@@ -8,3 +8,6 @@ founder/private/
 
 # erzeugt
 founder/dashboard.html
+
+# Docsify, erzeugt von scripts/docs-sidebar.sh
+_sidebar.md

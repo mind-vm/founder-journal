@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd {{GTM_PFAD}} && scripts/docs-sidebar.sh && exec python3 -m http.server {{PORT}} --bind 127.0.0.1"],
+      "port": {{PORT}}
+    }
+  ]
+}

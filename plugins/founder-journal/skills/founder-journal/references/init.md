@@ -11,11 +11,12 @@ Legt im aktuellen Repository das Founder Journal an. Einmal pro Produkt-Zyklus.
 5. **state.md** aus `templates/state.md`. Startdatum = heute, Go/No-Go = Ende Woche 6. Schwellen unverändert aus [methode.md](methode.md) übernehmen; will der Founder andere, jetzt festschreiben.
 6. **ICP vorbereiten:** Modus ICP ausführen ([icp.md](icp.md)), bis `icp-hypothesen.md` 3 bewertete Hypothesen und eine Empfehlung hat.
 7. **Erster Journal-Eintrag** aus `templates/journal.md`.
+8. **Lesen einrichten (Docsify):** `templates/docsify-index.html` als `index.html` ins Repository-Root (Platzhalter `{{PRODUKT}}`), `templates/docs-sidebar.sh` nach `scripts/` (ausführbar), `templates/launch.json` nach `.claude/launch.json` mit dem Pfad des Repositorys und einem freien Port (Standard 4333; belegt → nächster). Gibt es `.claude/launch.json` schon, die Konfiguration `docs` ergänzen. Dann `scripts/docs-sidebar.sh` einmal laufen lassen. Fertig, wenn `index.html`, `scripts/docs-sidebar.sh` und die Startkonfiguration existieren und `_sidebar.md` alle Dateien aus `founder/` listet.
 
 ## Fertig, wenn
 
-- alle Dateien aus dem Datenmodell existieren,
+- alle Dateien aus dem Datenmodell existieren, einschließlich Docsify,
 - `state.md` Phase „G0 offen“ und die nächste Aktion „ICP festlegen“ zeigt,
-- der Founder die Fragen aus `icp-hypothesen.md` vorgelegt bekommen hat.
+- der Founder die Fragen aus `icp-hypothesen.md` vorgelegt bekommen hat und weiß, wie er die Unterlagen liest (Konfiguration `docs` in der Claude-App oder `scripts/docs-sidebar.sh && python3 -m http.server <Port>`).
 
 Nicht committen; der Founder entscheidet über den ersten Commit und ob das Repository privat ist.

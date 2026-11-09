@@ -3,6 +3,9 @@
 ```
 <gtm-repo>/
   CLAUDE.md                  # enthält den Block „Founder-Regel“ (templates/CLAUDE-block.md)
+  index.html                 # Docsify zum Lesen (templates/docsify-index.html)
+  _sidebar.md                # erzeugt von scripts/docs-sidebar.sh, nicht committet
+  .claude/launch.json        # Startkonfiguration docs
   .gitignore                 # templates/gitignore
   founder/
     state.md                 # Phase, ICP, Problem, Schwellen, Zahlen, nächste Aktion
@@ -17,6 +20,7 @@
     reviews/JJJJ-Www.md, JJJJ-Www-circle.md
     private/                 # Rohnotizen, Transkripte (nie committen)
   landing/                   # statische Landingpage, oder nur README.md mit Verweis auf die Website des Produkts
+  scripts/docs-sidebar.sh    # baut die Docsify-Navigation aus founder/ und landing/
 ```
 
 ## contacts.csv
