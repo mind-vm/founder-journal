@@ -2,5 +2,9 @@
   "name": "founder-journal",
   "version": "0.1.10",
   "description": "Führt im GTM-Repository eines Produkts ein Founder Journal, misst Kundenarbeit und fragt vor Produktcode nach, bis Kunden zugesagt haben.",
-  "author": { "name": "Jürgen Ryannel" }
+  "author": {
+    "name": "Jürgen Ryannel"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/mind-vm/founder-journal"
 }

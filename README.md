@@ -71,3 +71,7 @@ Jeder Befehl startet einen **Modus** des Skills: einen Abschnitt mit eigenen Sch
 
 - `scripts/render_dashboard.py` und Kiosk-Setup für den Mini-PC
 - hartes Gate per PreToolUse-Hook
+
+## Lizenz
+
+[MIT](LICENSE) · Jürgen Ryannel
