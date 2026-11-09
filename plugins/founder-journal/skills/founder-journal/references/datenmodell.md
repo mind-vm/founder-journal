@@ -20,7 +20,8 @@
     reviews/JJJJ-Www.md, JJJJ-Www-circle.md
     private/                 # Rohnotizen, Transkripte (nie committen)
   landing/                   # statische Landingpage, oder nur README.md mit Verweis auf die Website des Produkts
-  scripts/docs-sidebar.sh    # baut die Docsify-Navigation aus founder/ und landing/
+  leitfaden/                 # Kopie aus dem Plugin: README.md, methode.md, interviews.md
+  scripts/docs-sidebar.sh    # baut die Docsify-Navigation aus founder/, leitfaden/ und landing/
 ```
 
 ## contacts.csv

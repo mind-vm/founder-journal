@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Erzeugt _sidebar.md für Docsify aus allen Markdown-Dateien in founder/ und landing/.
+# Erzeugt _sidebar.md für Docsify aus allen Markdown-Dateien in founder/, leitfaden/ und landing/.
 # Titel = erste "# "-Überschrift, sonst Dateiname. Journal und Reviews: neueste zuerst.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -25,6 +25,14 @@ title() {
       echo "  - [$(title "$f")](/$f)"
     done <<< "$files"
   done
+  if [ -f leitfaden/README.md ]; then
+    echo "- Leitfaden"
+    echo "  - [So arbeitest du hier](/leitfaden/README.md)"
+    for f in leitfaden/*.md; do
+      [ "$f" = leitfaden/README.md ] && continue
+      echo "  - [$(title "$f")](/$f)"
+    done
+  fi
   echo "- Repo"
   echo "  - [Landing](/landing/README.md)"
   echo "  - [CLAUDE.md](/CLAUDE.md)"

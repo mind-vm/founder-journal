@@ -23,7 +23,7 @@ Erkenne den Modus an der Anfrage und lies **vor dem ersten Schritt** die zugehö
 | Modus | Auslöser (Beispiel) | Referenz |
 | --- | --- | --- |
 | Triage | „Welche App zuerst?“ | [references/triage.md](references/triage.md) |
-| Init | „Leg das Founder Journal an“ | [references/init.md](references/init.md) |
+| Init | „Leg das Founder Journal an“, „Leitfaden aktualisieren“ | [references/init.md](references/init.md) |
 | ICP | „ICP schärfen“, „Hypothesen bewerten“ | [references/icp.md](references/icp.md) |
 | Landing / Landing-Review | „Bau die Landingpage“, „Review die Landingpage“ | [references/landing.md](references/landing.md) |
 | Outreach | „Wo finde ich den ICP?“, „Anfragen für heute“ | [references/outreach.md](references/outreach.md) |
