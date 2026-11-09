@@ -23,6 +23,10 @@ title() {
   for f in "$SKILL"/references/*.md; do
     echo "  - [$(title "$f")](/$f)"
   done
+  echo "- Leitfaden (Vorlage für GTM-Repos)"
+  for f in "$SKILL"/templates/leitfaden/*.md; do
+    echo "  - [$(title "$f")](/$f)"
+  done
   echo "- Vorlagen"
   for f in "$SKILL"/templates/*.md; do
     echo "  - [$(basename "$f" .md)](/$f)"
