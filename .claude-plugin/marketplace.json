@@ -1,0 +1,16 @@
+{
+  "name": "founder-journal",
+  "owner": {
+    "name": "Jürgen Ryannel"
+  },
+  "metadata": {
+    "description": "Customer-First-Werkzeuge für Founder: erst Kunden, dann Code."
+  },
+  "plugins": [
+    {
+      "name": "founder-journal",
+      "source": "./plugins/founder-journal",
+      "description": "Customer-First: Founder Journal, Kundenarbeit messen, Gate vor Produktcode."
+    }
+  ]
+}
