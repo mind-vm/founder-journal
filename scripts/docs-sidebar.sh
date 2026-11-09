@@ -27,6 +27,7 @@ title() {
   for f in "$SKILL"/templates/leitfaden/*.md; do
     echo "  - [$(title "$f")](/$f)"
   done
+  echo "- [Landing-Kit](/$SKILL/templates/landing-kit/README.md)"
   echo "- Vorlagen"
   for f in "$SKILL"/templates/*.md; do
     echo "  - [$(basename "$f" .md)](/$f)"

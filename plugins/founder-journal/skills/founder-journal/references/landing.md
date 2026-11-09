@@ -7,7 +7,8 @@ Voraussetzung: G0 erreicht. Sonst zuerst ICP.
 Eine Seite, eine Quelle. Erst klären, dann bauen:
 
 - **Das Produkt hat schon eine Website** (eigener Ordner im Produkt-Repository, eigene Domain): Die Landingpage wird dort gebaut, meist als neue Startseite für die Dauer des Zyklus. Die alte Produktseite bleibt als Komponente oder Unterseite erhalten. `landing/` im GTM-Repository enthält dann nur eine `README.md` mit Verweis (Domain, Dateien, Deploy-Weg). Die Website ist vom Gate ausgenommen; in die Founder-Regel der `CLAUDE.md` gehört der Pfad als Ausnahme.
-- **Keine Website:** statische Seite in `landing/` (`index.html`, `impressum.html`, `datenschutz.html`), ohne Build-Schritt.
+- **Keine Website:** das **Landing-Kit** aus `templates/landing-kit/` nach `landing/` kopieren und dessen `README.md` Schritt für Schritt folgen: statische Seiten ohne Build-Schritt, Gesprächsformular und Ergebnis-Formular, Cloudflare Worker mit D1 (EU), Benachrichtigung per Email Routing, Export-Skript. Fertig, wenn kein `{{…}}`-Platzhalter mehr in `landing/` steht (`grep -r '{{' landing/` ist leer) und Schritt 8 der Kit-README (Live prüfen) erledigt ist.
+- **Website vorhanden, aber ohne Formulare:** dasselbe Muster dort einbauen (Worker-Route `POST /anfrage`, D1, die beiden Formulare); `templates/landing-kit/worker/index.js` und die Migration sind die Vorlage.
 
 Vor dem Deploy prüfen: Wohin geht der Deploy wirklich (Repository und Branch, die der Hoster baut), und empfängt die Kontaktadresse Mail (MX-Eintrag)?
 
@@ -20,7 +21,7 @@ Aufbau, von oben:
 1. **Überschrift = Problem des ICP** in seinen Worten, nicht der Produktname.
 2. Unterzeile: was sich ändert, ein Satz.
 3. **Genau ein Call-to-Action**, passend zur Phase:
-   - Phase 1–3: „15-Minuten-Gespräch buchen“ (Kalender-Link) — Ziel sind Gespräche, nicht stille Testkonten.
+   - Phase 1–3: „15 Minuten mit mir sprechen“ als Formular mit nur einer E-Mail-Adresse (Benachrichtigung an den Founder) oder ein Kalender-Link. Ziel sind Gespräche, nicht stille Testkonten. Kein `mailto:` als Haupt-CTA: Auf dem Handy bricht es oft ab.
    - Phase 4: „Founding-Platz reservieren“ mit Preis.
    - E-Mail-Adresse als Alternative, klein.
 4. 3 Punkte, wie es funktioniert. Ein Bild oder kurzer Dialog statt Feature-Liste.

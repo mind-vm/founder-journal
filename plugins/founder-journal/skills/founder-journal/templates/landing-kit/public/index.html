@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PRODUKT}} – {{UEBERSCHRIFT}}</title>
+<meta name="description" content="{{UNTERZEILE}}">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<!-- Landing-Kit (founder-journal). Ein Call-to-Action: das Gespräch.
+     Überschrift = Problem des ICP in seinen Worten, nicht der Produktname. -->
+<header class="top"><div class="wrap"><a class="logo" href="/">{{PRODUKT}}<span>.</span></a></div></header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">{{ZIELGRUPPE_KURZ}}</p>
+      <h1>{{UEBERSCHRIFT}}</h1>
+      <p class="sub">{{UNTERZEILE}}</p>
+      <p class="note">Ein kurzes Gespräch per Telefon oder Video. Ich verkaufe Ihnen dabei nichts.</p>
+      <p class="error" id="fehler-gespraech" hidden>Bitte prüfen Sie Ihre E-Mail-Adresse.</p>
+      <form class="talk" method="post" action="/anfrage">
+        <input type="hidden" name="art" value="gespraech">
+        <label class="sr" for="talk-email">Ihre E-Mail-Adresse</label>
+        <div class="row">
+          <input id="talk-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="Ihre E-Mail-Adresse">
+          <button class="btn" type="submit">15 Minuten mit mir sprechen</button>
+        </div>
+        <div class="hp" aria-hidden="true"><label>Bitte leer lassen <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="hint">Ich melde mich per Mail mit Terminvorschlägen und nutze Ihre Adresse nur dafür (<a href="/datenschutz">Datenschutz</a>).</p>
+      </form>
+      <p class="alt"><a href="#ergebnisse">Lieber kein Gespräch? Ergebnisse per Mail bekommen →</a></p>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Kommt Ihnen das bekannt vor?</h2>
+      <div class="cards">
+        <div class="card"><h3>{{SITUATION_1_TITEL}}</h3><p>{{SITUATION_1_TEXT}}</p></div>
+        <div class="card"><h3>{{SITUATION_2_TITEL}}</h3><p>{{SITUATION_2_TEXT}}</p></div>
+        <div class="card"><h3>{{SITUATION_3_TITEL}}</h3><p>{{SITUATION_3_TEXT}}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap narrow">
+      <h2>Warum ich Sie um ein Gespräch bitte</h2>
+      <p>Ich bin {{FOUNDER_NAME}} und arbeite an {{PRODUKT}}. Bevor ich weiterbaue, möchte ich von 20 Menschen hören, wie {{PROBLEM_KURZ}} bei ihnen wirklich aussieht: was funktioniert, was nervt, was sie schon ausprobiert haben.</p>
+      <p>Es geht um Ihren Alltag, nicht um mein Produkt.</p>
+    </div>
+  </section>
+
+  <section class="band soft" id="ergebnisse">
+    <div class="wrap narrow">
+      <h2>Die Ergebnisse per Mail</h2>
+      <p class="sub">Wenn Sie kein Gespräch möchten: Hinterlassen Sie Ihre Adresse und zwei kurze Antworten. Ich schicke Ihnen die Ergebnisse aus den Gesprächen, sobald sie da sind. Sonst schreibe ich Ihnen nichts.</p>
+      <p class="error" id="fehler-formular" hidden>Bitte prüfen Sie Ihre E-Mail-Adresse und bestätigen Sie die Einwilligung.</p>
+      <form class="signup" method="post" action="/anfrage">
+        <input type="hidden" name="art" value="ergebnisse">
+        <div class="field"><label for="email">E-Mail-Adresse</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+        <div class="field"><label for="vorname">Vorname <span class="note">(optional)</span></label><input id="vorname" name="vorname" type="text" autocomplete="given-name" maxlength="60"></div>
+        <!-- Zusatzfragen: 1–2 Fragen nach Verhalten, nie „Würden Sie …?“. Name immer f_<kurzname>;
+             der Worker speichert bis zu 6 solcher Felder als JSON in der Spalte antworten. -->
+        <div class="field">
+          <label for="f_frage1">{{FRAGE_1}}</label>
+          <select id="f_frage1" name="f_frage1" required>
+            <option value="" selected disabled>Bitte wählen</option>
+            <option value="{{ANTWORT_1A}}">{{ANTWORT_1A}}</option>
+            <option value="{{ANTWORT_1B}}">{{ANTWORT_1B}}</option>
+            <option value="anders">Anders</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f_frage2">{{FRAGE_2}}</label>
+          <select id="f_frage2" name="f_frage2" required>
+            <option value="" selected disabled>Bitte wählen</option>
+            <option value="{{ANTWORT_2A}}">{{ANTWORT_2A}}</option>
+            <option value="{{ANTWORT_2B}}">{{ANTWORT_2B}}</option>
+            <option value="anders">Anders</option>
+          </select>
+        </div>
+        <label class="check"><input type="checkbox" name="gespraech" value="ja"><span>Ich wäre auch offen für ein 15-Minuten-Gespräch.</span></label>
+        <label class="check"><input type="checkbox" name="einwilligung" value="ja" required><span>Ich bin einverstanden, dass {{FOUNDER_NAME}} meine Angaben speichert, um mir die Ergebnisse zu schicken und, falls angekreuzt, wegen eines Gesprächs zu schreiben. Widerruf jederzeit an {{KONTAKT}}. Mehr in der <a href="/datenschutz">Datenschutzerklärung</a>.</span></label>
+        <div class="hp" aria-hidden="true"><label>Bitte leer lassen <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit">Ergebnisse erhalten</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© {{JAHR}} {{PRODUKT}} · {{FOUNDER_NAME}}</span><span><a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></span></div></footer>
+
+<script>
+  { const f = new URLSearchParams(location.search).get("fehler");
+    if (f === "gespraech") document.getElementById("fehler-gespraech").hidden = false;
+    if (f === "formular") document.getElementById("fehler-formular").hidden = false; }
+</script>
+</body>
+</html>

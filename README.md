@@ -44,7 +44,7 @@ Ohne Angabe wird das Plugin global installiert („user“). Damit gibt es die B
    ```
    Pfad zum Produkt-Repository und Website sind optional; ohne fragt Init danach.
 4. Init liest den Bestand, legt `founder/`, `leitfaden/`, Docsify und die Founder-Regel in `CLAUDE.md` an, aktiviert das Plugin für dieses Repository (`.claude/settings.json`) und entwirft drei ICP-Hypothesen.
-5. Du wählst eine Hypothese. Weiter geht es mit `/founder-journal:landing`.
+5. Du wählst eine Hypothese. Weiter geht es mit `/founder-journal:landing`. Hat das Produkt noch keine Website, kopiert Landing das **Landing-Kit** (Seite mit Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1, Benachrichtigung per Mail) und führt durch die Einrichtung.
 
 Hast du mehrere Produkte und weißt nicht, welches zuerst: vorher `/founder-journal:triage`.
 
