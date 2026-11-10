@@ -9,13 +9,13 @@ Eine Landingpage für die Problem-Interview-Phase, ohne Build-Schritt: statische
 - Spam-Falle (Honeypot), keine IP-Adresse gespeichert, keine Cookies, nichts von Dritten.
 - Export als CSV und Löschen per Skript.
 
-**Wann nehmen:** wenn das Produkt noch keine eigene Website hat. Hat es eine, dort dasselbe Muster einbauen (Worker-Route, D1, Formular) statt dieses Kit zu kopieren.
+**Wo:** immer in `founder/landing/` des Produkt-Repositorys. Eine vorhandene Website des Produkts bleibt unangetastet; die Landingpage läuft als eigener Worker auf einer Subdomain (z.B. `start.<domain>`), einer eigenen Domain oder, für die Dauer des Zyklus, auf der Hauptdomain.
 
 ## Einrichten
 
-Alle Befehle im Ordner `landing/` des GTM-Repositorys. Was der Founder selbst tun muss, ist markiert.
+Alle Befehle im Ordner `founder/landing/`. Was der Founder selbst tun muss, ist markiert.
 
-1. **Kopieren:** Inhalt dieses Ordners nach `landing/`.
+1. **Kopieren:** Inhalt dieses Ordners nach `founder/landing/`.
 2. **Texte:** Platzhalter `{{…}}` in `public/*.html` füllen: Überschrift = Problem in Worten der Zielgruppe, drei Situationen aus dem ICP, zwei Zusatzfragen nach Verhalten. Impressum und Datenschutz: Angaben beim Founder erfragen, nie erfinden. Farben in `public/styles.css`.
 3. **Cloudflare** (*Founder*: Konto, Domain in Cloudflare): `npx wrangler login`, dann
    ```bash
@@ -36,7 +36,7 @@ Alle Befehle im Ordner `landing/` des GTM-Repositorys. Was der Founder selbst tu
    ```bash
    npx wrangler deploy
    ```
-   Dann im Dashboard unter Workers → `<worker>` → Domains die eigene Domain verbinden (*Founder*).
+   Dann im Dashboard unter Workers → `<worker>` → Domains die Domain oder Subdomain verbinden (*Founder*). Hängt die Hauptdomain noch an der Website des Produkts, dort erst lösen und nach dem Zyklus zurückhängen.
 8. **Live prüfen:** Gesprächsanfrage mit eigener Adresse abschicken, Benachrichtigung abwarten, Testmail an `hallo@` schicken, Testeintrag mit `scripts/anfragen-export.sh --loeschen …` entfernen. Danach Landing-Review.
 
 ## Auswerten

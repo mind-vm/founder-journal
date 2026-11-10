@@ -31,22 +31,34 @@ In einer `claude`-Session:
 
 Ohne Angabe wird das Plugin global installiert („user“). Damit gibt es die Befehle `/founder-journal:…` in jedem Ordner, auch in einem neuen, leeren Repository. Updates holst du mit `/plugin marketplace update founder-journal`.
 
-## Ein Repository für ein Produkt anlegen
+## Im Repository eines Produkts starten
 
-1. Neuen Ordner neben dem Produkt anlegen und Git starten:
-   ```bash
-   mkdir ~/dev/tmp/meinprodukt-gtm && cd ~/dev/tmp/meinprodukt-gtm && git init
-   ```
-2. Dort Claude starten (Terminal: `claude`, oder in der Claude-App den Ordner öffnen).
-3. Eingeben:
-   ```
-   /founder-journal:init ~/dev/github.com/…/meinprodukt https://meinprodukt.de
-   ```
-   Pfad zum Produkt-Repository und Website sind optional; ohne fragt Init danach.
-4. Init liest den Bestand, legt `founder/`, `leitfaden/`, Docsify und die Founder-Regel in `CLAUDE.md` an, aktiviert das Plugin für dieses Repository (`.claude/settings.json`) und entwirft drei ICP-Hypothesen.
-5. Du wählst eine Hypothese. Weiter geht es mit `/founder-journal:landing`. Hat das Produkt noch keine Website, kopiert Landing das **Landing-Kit** (Seite mit Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1, Benachrichtigung per Mail) und führt durch die Einrichtung.
+Das Founder Journal lebt **im Repository des Produkts**, als eigener Bereich `founder/` neben Code und Docs. Das geht für ein neues, leeres Repository genauso wie für eines, in dem schon monatelang gebaut wurde: Dann ist es der Neustart vom Kunden her.
 
-Hast du mehrere Produkte und weißt nicht, welches zuerst: vorher `/founder-journal:triage`.
+1. Im Repository des Produkts Claude starten (Terminal: `claude`, oder den Ordner in der Claude-App öffnen).
+2. Eingeben:
+   ```
+   /founder-journal:init https://meinprodukt.de
+   ```
+   Die Website ist optional; gibt es eine, liest Init sie mit.
+3. Init legt `founder/` an (Stand, Journal, Kontakte, Leitfaden, Docsify), hängt den Founder-Block an `CLAUDE.md`, ergänzt `.gitignore` und `.claude/` und entwirft drei ICP-Hypothesen. Sonst ändert Init nichts; eine vorhandene Website oder App bleibt, wie sie ist.
+4. Du wählst eine Hypothese. Dann `/founder-journal:landing`: Es legt eine **eigene Landingpage** in `founder/landing/` an (Landing-Kit: Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1, Benachrichtigung per Mail) und führt durch die Einrichtung.
+
+**Ab dann gilt:** Alles außerhalb von `founder/` ist Produktcode. Bevor dort etwas entsteht, fragt Claude nach (Gate), bis Kunden zugesagt haben. Bugfixes laufen als „Betrieb“ ohne Nachfrage.
+
+```
+mein-produkt/
+  CLAUDE.md          + Founder-Block
+  src/, docs/, …     das Produkt (hinter dem Gate)
+  founder/
+    state.md         Stand, Phase, nächste Aktion
+    journal/ …       Journal, Interviews, Kontakte, Reviews, Assets
+    leitfaden/       So arbeitest du hier, Ablauf, Interviews, Methode
+    landing/         eigene Landingpage
+    index.html       Docsify: founder/ als Website lesen
+```
+
+Mehrere Produkte und unklar, welches zuerst: vorher `/founder-journal:triage`.
 
 ## Befehle
 

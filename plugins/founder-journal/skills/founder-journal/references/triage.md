@@ -1,6 +1,6 @@
 # Modus Triage
 
-Wählt bei mehreren Produkten genau eines für den nächsten Zyklus. Ergebnis: `portfolio.md` im GTM-Repository (oder im aktuellen Ordner, wenn es noch keins gibt).
+Wählt bei mehreren Produkten genau eines für den nächsten Zyklus. Ergebnis: `portfolio.md` im aktuellen Ordner; nach der Wahl wandert es nach `founder/portfolio.md` des gewählten Produkts.
 
 ## Schritte
 

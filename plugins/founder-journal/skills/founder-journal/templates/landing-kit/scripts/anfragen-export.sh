@@ -5,11 +5,11 @@
 #   scripts/anfragen-export.sh
 #   scripts/anfragen-export.sh --loeschen adresse@example.de
 #
-# Läuft im Ordner mit wrangler.jsonc (landing/); braucht `npx wrangler login`.
+# Liegt in founder/landing/scripts/; braucht `npx wrangler login`.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 DB=$(python3 -c 'import json,re,sys; s=open("wrangler.jsonc").read(); s=re.sub(r"^\s*//.*$","",s,flags=re.M); print(json.loads(s)["d1_databases"][0]["database_name"])')
-OUT="../founder/private/anfragen-$(date +%F).csv"
+OUT="../private/anfragen-$(date +%F).csv"
 
 if [[ "${1:-}" == "--loeschen" ]]; then
   email="${2:?Adresse fehlt}"

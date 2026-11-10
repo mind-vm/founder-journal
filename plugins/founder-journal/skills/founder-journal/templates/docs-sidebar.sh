@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Erzeugt _sidebar.md für Docsify, geordnet nach dem Ablauf: fünf Phasen mit
-# Status aus founder/state.md (✓ erledigt, ● jetzt), darunter die Unterlagen
-# der Phase; danach was immer läuft (Journal, Reviews, Assets) und der Leitfaden.
-# Titel = erste "# "-Überschrift, sonst Dateiname. Aus dem Plugin founder-journal.
+# Erzeugt founder/_sidebar.md für Docsify (Root = founder/), geordnet nach dem
+# Ablauf: fünf Phasen mit Status aus state.md (✓ erledigt, ● jetzt), darunter
+# die Unterlagen der Phase; danach was immer läuft (Journal, Reviews, Assets)
+# und der Leitfaden. Titel = erste "# "-Überschrift, sonst Dateiname.
+# Liegt in founder/scripts/. Aus dem Plugin founder-journal.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -26,23 +27,23 @@ def files(pattern, newest_first=False):
 
 # Status der Gates aus der Tabelle in state.md: | G0 … | Bedingung | Stand |
 gates = {}
-if os.path.exists("founder/state.md"):
-    for line in open("founder/state.md", encoding="utf-8"):
+if os.path.exists("state.md"):
+    for line in open("state.md", encoding="utf-8"):
         m = re.match(r"\|\s*(G[0-3])\b[^|]*\|[^|]*\|([^|]*)\|", line)
         if m:
             gates[m.group(1)] = "erreicht" in m.group(2).lower()
 
-landing_reviews = files("founder/reviews/*landing*.md", True)
-week_reviews = [f for f in files("founder/reviews/*.md", True) if f not in landing_reviews]
+landing_reviews = files("reviews/*landing*.md", True)
+week_reviews = [f for f in files("reviews/*.md", True) if f not in landing_reviews]
 
 phases = [
     ("Zielgruppe & Problem", "G0", [
-        "founder/icp-hypothesen.md", "founder/befund-bestand.md", "founder/portfolio.md"]),
+        "icp-hypothesen.md", "befund-bestand.md", "portfolio.md"]),
     ("Landingpage", "G1", ["landing/README.md"] + landing_reviews),
     ("Kontakte & Gespräche", "G2",
-        files("founder/outreach/*.md") + files("founder/interviews/*.md", True)),
-    ("Zusagen", None, files("founder/angebote/*.md", True)),
-    ("Entscheidung", "G3", files("founder/entscheidung*.md")),
+        files("outreach/*.md") + files("interviews/*.md", True)),
+    ("Zusagen", None, files("angebote/*.md", True)),
+    ("Entscheidung", "G3", files("entscheidung*.md")),
 ]
 
 done = []
@@ -52,7 +53,7 @@ for _, gate, _ in phases:
     done.append(gates.get(gate, False))
 current = next((i for i, d in enumerate(done) if not d), None)
 
-out = [f"- {link('founder/state.md', 'Stand')}"]
+out = [f"- {link('state.md', 'Stand')}"]
 if os.path.exists("leitfaden/ablauf.md"):
     out.append(f"- {link('leitfaden/ablauf.md', 'Ablauf')}")
 for i, (name, gate, paths) in enumerate(phases):
@@ -66,14 +67,14 @@ for i, (name, gate, paths) in enumerate(phases):
         out.append("  - noch nichts")
 
 out.append("- Laufend")
-journals = files("founder/journal/*.md", True)
+journals = files("journal/*.md", True)
 if journals:
     out.append(f"  - Journal: {link(journals[0], 'neuester Eintrag')}")
     for p in journals[1:]:
         out.append(f"  - {link(p)}")
 for p in week_reviews:
     out.append(f"  - {link(p)}")
-for p in files("founder/assets/*/README.md", True):
+for p in files("assets/*/README.md", True):
     out.append(f"  - {link(p)}")
 
 if os.path.exists("leitfaden/README.md"):
@@ -82,6 +83,5 @@ if os.path.exists("leitfaden/README.md"):
     for p in ["leitfaden/interviews.md", "leitfaden/methode.md"]:
         if os.path.exists(p):
             out.append(f"  - {link(p)}")
-out.append(f"- {link('CLAUDE.md', 'CLAUDE.md')}")
 print("\n".join(out))
 PY

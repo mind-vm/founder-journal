@@ -1,13 +1,9 @@
-.DS_Store
 
-# Personenbezogene Daten: lokal, bis das Repository nachweislich privat ist.
+# Founder Journal: echte Personen bleiben lokal, Erzeugtes nicht committen
 founder/contacts.csv
 founder/interviews/*
 !founder/interviews/.gitkeep
 founder/private/
-
-# erzeugt
+founder/_sidebar.md
 founder/dashboard.html
-
-# Docsify, erzeugt von scripts/docs-sidebar.sh
-_sidebar.md
+founder/landing/.wrangler/

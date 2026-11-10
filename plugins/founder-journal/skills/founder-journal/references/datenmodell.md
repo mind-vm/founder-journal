@@ -1,29 +1,31 @@
 # Datenmodell
 
 ```
-<gtm-repo>/
-  CLAUDE.md                  # enthält den Block „Founder-Regel“ (templates/CLAUDE-block.md)
-  index.html                 # Docsify zum Lesen (templates/docsify-index.html)
-  _sidebar.md                # erzeugt von scripts/docs-sidebar.sh, nicht committet
-  .claude/launch.json        # Startkonfiguration docs
-  .gitignore                 # templates/gitignore
+<produkt-repo>/
+  CLAUDE.md                  # + Block „Founder-Regel“ (templates/CLAUDE-block.md)
+  .gitignore                 # + Zeilen aus templates/gitignore
+  .claude/launch.json        # + Startkonfiguration docs
+  .claude/settings.json      # Plugin aktiv in diesem Repository
+  docs/, src/, …             # das Produkt: alles außerhalb von founder/ ist Produktcode
   founder/
+    index.html               # Docsify (templates/docsify-index.html)
+    _sidebar.md              # erzeugt, nicht committet
     state.md                 # Phase, ICP, Problem, Schwellen, Zahlen, nächste Aktion
     icp-hypothesen.md        # Hypothesen mit Scoring
-    befund-bestand.md        # nur wenn das Produkt schon existiert
+    befund-bestand.md        # wenn schon Code oder eine Website existiert
     portfolio.md             # nur bei mehreren Produkten (Triage)
-    contacts.csv             # Kontakte
+    contacts.csv             # Kontakte (nicht committet)
     journal/JJJJ-MM-TT.md    # ein Eintrag pro Tag
-    interviews/JJJJ-MM-TT-vorname-n.md
-    outreach/JJJJ-MM-TT.md   # Entwürfe des Tages, nicht gesendet
-    assets/                  # Video, Flyer, Ad-Motive, jeweils mit Testfrage
-    reviews/JJJJ-Www.md, JJJJ-Www-circle.md, JJJJ-MM-TT-landing-review.md
-    angebote/                # Phase 4: Angebote, LOIs (optional)
+    interviews/JJJJ-MM-TT-vorname-n.md   # nicht committet
+    outreach/                # Vorlagen, Watering Holes, Entwürfe des Tages
+    assets/                  # Flyer, Video, Ad-Motive, jeweils mit Testfrage
+    reviews/                 # JJJJ-Www.md, JJJJ-Www-circle.md, JJJJ-MM-TT-landing-review.md
+    angebote/                # Phase 4: Angebote, LOIs
     entscheidung.md          # Phase 5: Go/Pivot/Kill mit Begründung
-    private/                 # Rohnotizen, Transkripte (nie committen)
-  landing/                   # Landing-Kit (public/, worker/, migrations/, wrangler.jsonc), oder nur README.md mit Verweis auf die Website des Produkts
-  leitfaden/                 # Kopie aus dem Plugin: README.md, ablauf.md, methode.md, interviews.md
-  scripts/docs-sidebar.sh    # baut die Docsify-Navigation nach Phasen, Status aus state.md
+    private/                 # Rohnotizen, Transkripte, Exporte (nie committet)
+    leitfaden/               # Kopie aus dem Plugin: README, ablauf, methode, interviews
+    landing/                 # eigene Landingpage (Landing-Kit), unabhängig von der Website des Produkts
+    scripts/docs-sidebar.sh  # Docsify-Navigation nach Phasen, Status aus state.md
 ```
 
 ## contacts.csv
@@ -52,4 +54,4 @@ Bei B2C steht in `firma` der Kontext (z.B. „Elternbeirat GS Musterstadt“) od
 
 ## Datenschutz
 
-`contacts.csv`, `interviews/` und `private/` enthalten echte Personen. Standard: per `.gitignore` ausgeschlossen. Erst wenn der Founder bestätigt, dass das Repository privat ist, dürfen die Zeilen fallen. Gesprächsaufnahmen nur mit ausdrücklicher Zustimmung.
+`founder/contacts.csv`, `founder/interviews/` und `founder/private/` enthalten echte Personen und sind immer per `.gitignore` ausgeschlossen, auch in privaten Repositorys (Teams, Forks, CI). Journal und Reviews enthalten Zitate ohne Nachnamen; ist das Repository öffentlich, entscheidet der Founder, ob `founder/` überhaupt committet wird. Gesprächsaufnahmen nur mit ausdrücklicher Zustimmung.

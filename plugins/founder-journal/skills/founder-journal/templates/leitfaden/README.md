@@ -2,7 +2,7 @@
 
 > Kopie aus dem Plugin `founder-journal` {{VERSION}}. Bitte nicht hier bearbeiten: Eine neue Fassung holt „Leitfaden aktualisieren“.
 
-Dieses Repository führt die Kundengewinnung für **{{PRODUKT}}**. Die Regel ist einfach: **erst Kunden, dann Code.** Produktcode entsteht erst, wenn die Go-Schwellen erfüllt sind, also 20 Gespräche geführt sind und 3 Kunden zugesagt haben, dass sie zahlen. Bis dahin baust du nur, was dem Verkaufen dient.
+Der Bereich `founder/` in diesem Repository führt die Kundengewinnung für **{{PRODUKT}}**. Die Regel ist einfach: **erst Kunden, dann Code.** Alles außerhalb von `founder/` ist Produktcode, und der entsteht erst, wenn die Go-Schwellen erfüllt sind, also 20 Gespräche geführt sind und 3 Kunden zugesagt haben, dass sie zahlen. Bis dahin baust du nur, was dem Verkaufen dient, und das liegt in `founder/`. Eine vorhandene Website oder App bleibt, wie sie ist.
 
 Claude hilft dabei im Terminal. Alle Daten liegen als Markdown und CSV in `founder/`. Der Stand, den du hier liest, ist der Stand in den Dateien, nicht der in Claudes Erinnerung.
 
@@ -26,11 +26,11 @@ Jede Zeile ist ein **Modus** des Skills. Du startest ihn mit dem Befehl oder ein
 | `/founder-journal:review` | „Review“ | Zählen, Phase bestimmen, Muster, max. 3 Ratschläge | `founder/reviews/JJJJ-Www.md` |
 | `/founder-journal:circle` | „Update für den Circle“ | Wochen-Update zum Teilen | `founder/reviews/JJJJ-Www-circle.md` |
 | `/founder-journal:icp` | „ICP schärfen“ | Zielgruppe und Problem zuspitzen | `founder/icp-hypothesen.md`, `state.md` |
-| `/founder-journal:landing` | „Bau die Landingpage“ | Seite bauen oder ändern; ohne eigene Website mit dem Landing-Kit (Gesprächsformular, Ergebnis-Formular, Speicher, Benachrichtigung per Mail) | `landing/` oder die Website |
+| `/founder-journal:landing` | „Bau die Landingpage“ | eigene Landingpage aus dem Landing-Kit: Gesprächsformular, Ergebnis-Formular, Speicher, Benachrichtigung per Mail | `founder/landing/` |
 | `/founder-journal:landing-review` | „Review die Landingpage“ | Prüfung gegen 5-Sekunden-Test, ein CTA, Recht | `founder/reviews/` |
 | `/founder-journal:asset` | „Mach einen Flyer / ein Demo-Video“ | Asset mit Testfrage | `founder/assets/` |
-| `/founder-journal:leitfaden` | „Leitfaden aktualisieren“ | neue Fassung dieses Leitfadens aus dem Plugin | `leitfaden/` |
-| – | eine Anfrage nach Produktcode | eine Zeile mit Phase und Trade-off, dann Nachfrage | Ausnahme im Journal, wenn du trotzdem baust |
+| `/founder-journal:leitfaden` | „Leitfaden aktualisieren“ | neue Fassung dieses Leitfadens aus dem Plugin | `founder/leitfaden/` |
+| – | eine Änderung außerhalb von `founder/` | eine Zeile mit Phase und Trade-off, dann Nachfrage | Ausnahme im Journal, wenn du trotzdem baust |
 
 ## Wer was macht
 
@@ -49,7 +49,7 @@ Die Navigation links folgt den fünf Phasen und zeigt, wo du stehst (✓ erledig
 | G2 Erste Signale | 10 geführte Gespräche | Muster auswerten, Zusagen anfragen |
 | G3 Go | alle Go-Schwellen erfüllt | Produktcode für den Kern-Workflow |
 
-Die Go-Schwellen sind beim Start festgeschrieben und stehen in [`founder/state.md`](../founder/state.md). Die ganze Methode mit Commitment-Leiter steht in [Methode](methode.md), die Regeln für Gespräche in [Interviews](interviews.md).
+Die Go-Schwellen sind beim Start festgeschrieben und stehen in [`founder/state.md`](../state.md). Die ganze Methode mit Commitment-Leiter steht in [Methode](methode.md), die Regeln für Gespräche in [Interviews](interviews.md).
 
 ## Wo was liegt
 
@@ -63,19 +63,21 @@ Die Go-Schwellen sind beim Start festgeschrieben und stehen in [`founder/state.m
 | `founder/assets/` | Flyer, Videos, Anzeigen, jeweils mit Testfrage |
 | `founder/reviews/` | Wochen-Reviews, Circle-Updates, Landing-Reviews |
 | `founder/private/` | Rohnotizen, Exporte (nie im Git) |
-| `landing/` | die Landingpage aus dem Landing-Kit mit Einrichtungsanleitung (`landing/README.md`), oder ein Verweis auf die Website des Produkts |
-| `leitfaden/` | dieser Leitfaden |
+| `founder/landing/` | deine eigene Landingpage aus dem Landing-Kit, mit Einrichtungsanleitung (`founder/landing/README.md`) |
+| `founder/leitfaden/` | dieser Leitfaden |
+| `founder/scripts/` | Navigation für diese Seite |
+| alles außerhalb von `founder/` | das Produkt; davor steht das Gate |
 
 ## Anfragen von der Landingpage
 
-Wer auf der Landingpage „15 Minuten mit mir sprechen“ nutzt, landet in der Anfrage-Liste, und du bekommst sofort eine Mail. Mit „Antworten“ schreibst du direkt zurück. Wer lieber nur die Ergebnisse will, trägt sich im zweiten Formular ein. Beides holst du als CSV mit dem Export-Skript (`landing/scripts/anfragen-export.sh` beim Landing-Kit). Gesprächsanfragen und „offen für ein Gespräch“ kommen als Kontakte in `founder/contacts.csv`; reine Anmeldungen zählen nicht für die Go-Schwellen.
+Wer auf der Landingpage „15 Minuten mit mir sprechen“ nutzt, landet in der Anfrage-Liste, und du bekommst sofort eine Mail. Mit „Antworten“ schreibst du direkt zurück. Wer lieber nur die Ergebnisse will, trägt sich im zweiten Formular ein. Beides holst du als CSV mit `founder/landing/scripts/anfragen-export.sh`. Gesprächsanfragen und „offen für ein Gespräch“ kommen als Kontakte in `founder/contacts.csv`; reine Anmeldungen zählen nicht für die Go-Schwellen.
 
 ## Lesen
 
 Diese Seite ist Docsify: In der Claude-App die Startkonfiguration `docs` starten, oder im Terminal:
 
 ```bash
-scripts/docs-sidebar.sh && python3 -m http.server {{PORT}} --bind 127.0.0.1
+founder/scripts/docs-sidebar.sh && python3 -m http.server {{PORT}} --bind 127.0.0.1 --directory founder
 ```
 
-Die Navigation links baut das Skript bei jedem Start neu aus `founder/`, `landing/` und `leitfaden/`.
+Die Navigation links baut das Skript bei jedem Start neu: nach den fünf Phasen, mit dem Stand aus `state.md`.

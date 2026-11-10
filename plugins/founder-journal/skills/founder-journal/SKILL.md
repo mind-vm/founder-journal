@@ -1,11 +1,11 @@
 ---
 name: founder-journal
-description: Customer-First-Begleiter im GTM-Repository eines Produkts. Nutze ihn bei "Founder Journal anlegen" / Init, "Journal:" mit Tageszahlen, Interview-Notizen, "Review" oder Freitags-Review, Circle-Update, ICP oder Triage, Landingpage bauen oder reviewen, Watering Holes, Kontaktliste, Anfragen oder Follow-ups, Demo-Video, Flyer, Ad-Test, Go/No-Go – und als Gate, sobald in einem Repository mit founder/state.md Produktcode gebaut werden soll.
+description: Customer-First-Begleiter im Repository eines Produkts (Bereich founder/). Nutze ihn bei "Founder Journal anlegen" / Init, "Journal:" mit Tageszahlen, Interview-Notizen, "Review" oder Freitags-Review, Circle-Update, ICP oder Triage, Landingpage bauen oder reviewen, Watering Holes, Kontaktliste, Anfragen oder Follow-ups, Demo-Video, Flyer, Ad-Test, Go/No-Go – und als Gate, sobald in einem Repository mit founder/state.md außerhalb von founder/ gebaut werden soll.
 ---
 
 # Founder Journal
 
-Der Skill führt einen Founder durch die Customer-First-Methode: erst Kunden, dann Code. Er arbeitet im **GTM-Repository** eines Produkts; alle Daten liegen dort als Markdown und CSV unter `founder/`. Diese Dateien sind die einzige Quelle der Wahrheit.
+Der Skill führt einen Founder durch die Customer-First-Methode: erst Kunden, dann Code. Er arbeitet im **Repository des Produkts**, im eigenen Bereich `founder/`: Stand, Journal, Kontakte, Leitfaden, Docsify und eine eigene Landingpage, alles als Dateien. Diese Dateien sind die einzige Quelle der Wahrheit. Alles außerhalb von `founder/` ist Produktcode, und davor steht das Gate.
 
 ## Grundprinzipien
 
@@ -32,7 +32,7 @@ Erkenne den Modus an der Anfrage oder am Befehl (`/founder-journal:<befehl>`) un
 | Asset / Ad-Test | „Mach einen Flyer“, „Starte einen Ad-Test“ · `asset` | [references/assets.md](references/assets.md) |
 | Gate | Anfrage nach Produktcode | [references/gate.md](references/gate.md) |
 
-Phasen, Gates, Go-Schwellen und Commitment-Leiter stehen in [references/methode.md](references/methode.md); Dateiformate in [references/datenmodell.md](references/datenmodell.md). Vorlagen liegen in `templates/`, darunter das **Landing-Kit** (`templates/landing-kit/`, Anleitung in dessen `README.md`): Landingpage mit Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1 und Mail-Benachrichtigung für Produkte ohne eigene Website.
+Phasen, Gates, Go-Schwellen und Commitment-Leiter stehen in [references/methode.md](references/methode.md); Dateiformate in [references/datenmodell.md](references/datenmodell.md). Vorlagen liegen in `templates/`, darunter das **Landing-Kit** (`templates/landing-kit/`, Anleitung in dessen `README.md`): die eigene Landingpage in `founder/landing/` mit Gesprächs- und Ergebnis-Formular, Cloudflare Worker, D1 und Mail-Benachrichtigung.
 
 ## Nach jedem Modus
 
